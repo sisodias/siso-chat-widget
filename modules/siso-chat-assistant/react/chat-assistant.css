@@ -1,0 +1,135 @@
+/*
+ * Portable host styling. Every rule is scoped to the module boundary so a
+ * donor SDK update cannot reset or restyle the host application.
+ */
+.siso-chat-assistant {
+  --siso-chat-cocoa: #4d2e10;
+  --siso-chat-bark: #522700;
+  --siso-chat-sand: #ede1d4;
+  --siso-chat-paper: #fffdf9;
+  --siso-chat-panel-width: 400px;
+  --siso-chat-brand-name: 'Assistant';
+  --siso-chat-logo: none;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > button {
+  background: var(--siso-chat-bark) !important;
+  box-shadow: 0 14px 30px rgba(77, 46, 16, 0.24) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > button:hover {
+  background: var(--siso-chat-cocoa) !important;
+  box-shadow: 0 18px 36px rgba(77, 46, 16, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > button:not([aria-label='Close chat']) > img {
+  display: none !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > button:not([aria-label='Close chat'])::before {
+  content: '✦';
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section {
+  background: var(--siso-chat-paper) !important;
+  border: 1px solid rgba(77, 46, 16, 0.14) !important;
+  box-shadow: 0 24px 70px rgba(77, 46, 16, 0.2) !important;
+  color: var(--siso-chat-cocoa) !important;
+  font-family: Montserrat, system-ui, sans-serif !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header {
+  align-items: center !important;
+  border-bottom: 1px solid rgba(77, 46, 16, 0.1) !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header > img {
+  display: none !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header::before {
+  content: '';
+  display: block;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  background: var(--siso-chat-logo);
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header > div:first-of-type {
+  flex: 1 1 auto !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header > div:first-of-type::before {
+  content: var(--siso-chat-brand-name);
+  color: var(--siso-chat-cocoa);
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section > header button {
+  color: var(--siso-chat-cocoa) !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section a {
+  color: var(--siso-chat-bark) !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section input,
+.siso-chat-assistant [data-openchatwidget-root] > section textarea {
+  color: var(--siso-chat-cocoa) !important;
+  background: #fff !important;
+  border-color: rgba(77, 46, 16, 0.18) !important;
+}
+
+.siso-chat-assistant [data-openchatwidget-root] > section input:focus,
+.siso-chat-assistant [data-openchatwidget-root] > section textarea:focus {
+  border-color: var(--siso-chat-bark) !important;
+  box-shadow: 0 0 0 3px rgba(82, 39, 0, 0.12) !important;
+}
+
+/* The donor link is nested in the composer form, not a direct panel child. */
+.siso-chat-assistant [data-openchatwidget-root] > section a[href*='openchatwidget.com'],
+.siso-chat-assistant [data-openchatwidget-root] a[href*='openchatwidget.com'] {
+  display: none !important;
+}
+
+@media (min-width: 641px) {
+  .siso-chat-assistant [data-openchatwidget-root] > section {
+    width: min(var(--siso-chat-panel-width), calc(100vw - 32px)) !important;
+    height: min(600px, calc(100vh - 40px)) !important;
+    max-height: calc(100vh - 40px) !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .siso-chat-assistant [data-openchatwidget-root] > button {
+    bottom: 76px !important;
+  }
+
+  .siso-chat-assistant [data-openchatwidget-root] > section {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siso-chat-assistant [data-openchatwidget-root] > button {
+    transition: none !important;
+  }
+
+  .siso-chat-assistant [data-openchatwidget-root] > button:hover {
+    transform: none;
+  }
+}
