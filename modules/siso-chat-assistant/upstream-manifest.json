@@ -17,7 +17,7 @@
   "remoteFork": {
     "repository": "https://github.com/sisodias/siso-chat-widget",
     "ref": "siso-module",
-    "commit": "pending-module-publish"
+    "commit": "bf49b95b74d1a7cc095fbfd6d418dfb7bbf32e07"
   },
   "notes": "The fork preserves the donor package while the SISO module is maintained under modules/siso-chat-assistant. Host-specific prompts, secrets, branding, and routes remain outside the shared module."
 }
