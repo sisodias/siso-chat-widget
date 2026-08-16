@@ -23,6 +23,7 @@
     "module-manifest.json",
     "upstream-manifest.json",
     "README.md",
+    "INSTALL.md",
     "package.json"
   ],
   "peerDependencies": {
