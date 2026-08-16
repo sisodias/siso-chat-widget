@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "donor": {
+    "repository": "https://github.com/Open-Chat-Widget/openchatwidget",
+    "package": "@openchatwidget/sdk",
+    "pinnedVersion": "0.1.2",
+    "license": "MIT",
+    "commit": "917a6a6e8abdbc7e3f8df626336c2b9228467d62"
+  },
+  "localDelta": [
+    "same-origin host adapter with client-provided brand and theme",
+    "scoped removal of donor global CSS and customer-facing attribution",
+    "provider-agnostic Cloudflare Pages handler with Groq-first routing",
+    "grounded no-key fallback and secret-free health probe"
+  ],
+  "syncPolicy": "reviewed-package-upgrade",
+  "remoteFork": {
+    "repository": "https://github.com/sisodias/siso-chat-widget",
+    "ref": "siso-module",
+    "commit": "pending-module-publish"
+  },
+  "notes": "The fork preserves the donor package while the SISO module is maintained under modules/siso-chat-assistant. Host-specific prompts, secrets, branding, and routes remain outside the shared module."
+}
