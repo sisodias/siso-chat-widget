@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "moduleId": "chat-assistant",
+  "manifestVersion": "0.2.0",
+  "display": {
+    "label": "Chat assistant",
+    "description": "A branded, same-origin AI assistant that can be mounted by any SISO client host.",
+    "icon": "message-circle"
+  },
+  "mode": "native-adapter",
+  "lifecycle": "target-module",
+  "experience": "native-shell",
+  "routes": [
+    {
+      "routeId": "chat-api",
+      "path": "/api/chat",
+      "slot": "module.sidecar",
+      "requiredCapabilities": ["siso:chat-assistant:conversation:run"]
+    }
+  ],
+  "capabilities": ["siso:chat-assistant:conversation:run"],
+  "identity": {
+    "protocol": "oidc-authorization-code-pkce",
+    "audience": "siso-module:chat-assistant",
+    "tokenClaims": ["sub", "aud", "azp", "siso_client_id", "siso_membership_id", "siso_capabilities", "jti", "exp", "iat", "iss"],
+    "allowedOrigins": ["https://platform.siso.example"]
+  },
+  "authorities": [
+    {
+      "authorityId": "assistant-context",
+      "system": "host-config",
+      "entities": ["assistant-context"],
+      "recordClass": "read-model",
+      "writePolicy": "read-only"
+    }
+  ],
+  "integration": {
+    "commands": ["conversation.respond.v1", "conversation.clear.v1"],
+    "emits": [],
+    "consumes": [],
+    "readModels": ["assistant.context.v1"],
+    "configReferenceKinds": ["provider.secret.v1", "prompt.context.v1", "branding.tokens.v1"]
+  },
+  "health": {
+    "endpoint": "/api/chat/health",
+    "maxReceiptAgeSeconds": 3600,
+    "requiredDependencyProbes": ["provider.runtime.v1"]
+  },
+  "release": {
+    "receiptSchema": "release-receipt.v1",
+    "minimumCoreVersion": "1.0.0"
+  },
+  "repository": {
+    "source": "internal:melanotresses-site/modules/siso-chat-assistant",
+    "owner": "siso-platform"
+  }
+}
