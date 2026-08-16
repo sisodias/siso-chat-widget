@@ -1,0 +1,37 @@
+{
+  "name": "@siso/chat-assistant-module",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Reusable SISO host adapter and edge handler for an AI chat assistant.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sisodias/siso-chat-widget.git",
+    "directory": "modules/siso-chat-assistant"
+  },
+  "scripts": {
+    "test": "node tests/module-contract.mjs"
+  },
+  "exports": {
+    "./react": "./react/ChatAssistantWidget.jsx",
+    "./server": "./server/chat-handler.js",
+    "./styles.css": "./react/chat-assistant.css",
+    "./module-manifest.json": "./module-manifest.json"
+  },
+  "files": [
+    "react",
+    "server",
+    "module-manifest.json",
+    "upstream-manifest.json",
+    "README.md",
+    "package.json"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.97",
+    "@openchatwidget/sdk": "^0.1.2",
+    "ai": "^6.0.256"
+  }
+}
